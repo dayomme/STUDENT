@@ -1,11 +1,14 @@
 package View;
 import java.util.Scanner;
 
+import Model.DAO;
+
 public class View {
 
 	public static void main(String[] args) {
 		
 		  Scanner sc = new Scanner(System.in);
+		  DAO dao = new DAO();
 		
 		while(true) {
 			System.out.println("[스마트인재개발원 학생관리 프로그램]");
@@ -15,7 +18,7 @@ public class View {
 			if(menu==1) { // 1. 학생등록 
 				System.out.println();
 			}else if(menu==2) { // 2. 학생 조회
-				
+				dao.List();
 			}else if(menu==3) { // 3. 학생 정보수정 
 				
 			}else if(menu==4) { // 4. 학생 삭제 

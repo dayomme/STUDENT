@@ -5,10 +5,10 @@ public class DTO {
 	private String name ; // 이름 
 	private int birthday ; // 생일
 	private String address; //주소
-	private int phonNumber; // 번호 
+	private String phonNumber; // 번호 
 	
 	
-	public DTO(String name, int birthday, String address, int phonNumber) {
+	public DTO(String name, int birthday, String address, String phonNumber) {
 		this.name = name;
 		this.birthday = birthday;
 		this.address = address;
@@ -46,12 +46,12 @@ public class DTO {
 	}
 
 
-	public int getPhonNumber() {
+	public String getPhonNumber() {
 		return phonNumber;
 	}
 
 
-	public void setPhonNumber(int phonNumber) {
+	public void setPhonNumber(String phonNumber) {
 		this.phonNumber = phonNumber;
 	}
 	

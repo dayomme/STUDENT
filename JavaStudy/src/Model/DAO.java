@@ -4,6 +4,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class DAO {
 
@@ -12,7 +13,7 @@ public class DAO {
 	PreparedStatement pstm = null;
 	ResultSet rs = null;
 
-	private void connect() {
+	public void getConn() {
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -42,5 +43,53 @@ public class DAO {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	//학생조회 
+	public ArrayList<DTO> List() {
+
+		getConn();
+
+		ArrayList<DTO> List = new ArrayList<>();
+
+		String sql = "select * from 학생";
+
+		try {
+			pstm = conn.prepareStatement(sql);
+			rs = pstm.executeQuery(); // 쿼리 실행문
+
+			while (rs.next()) {
+				String name = rs.getString("이름");
+				int birthday = rs.getInt("생일");
+				String address = rs.getString("주소");
+				String phonNumber = rs.getString("핸드폰번호");
+
+				DTO dto = new DTO(name, birthday, address, phonNumber);
+				List.add(dto);
+			}
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		getClose();
+		return List;
+	}
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
