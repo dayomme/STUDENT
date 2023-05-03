@@ -26,6 +26,7 @@ public class DAO {
 			e.printStackTrace();
 		}
 	}
+	
 
 	// DB해제 
 	public void getClose() {
